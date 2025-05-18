@@ -1,29 +1,25 @@
 import CartWidget from "./CartWidget";
+import logo from '../assets/logo-doll.png';
+import { space } from "@chakra-ui/react";
+import { CiShoppingCart } from "react-icons/ci";
+import { GoPerson } from "react-icons/go";
+import { IoSearchOutline } from "react-icons/io5";
+import { CiMenuBurger } from "react-icons/ci";
 
-const NavBar = () => {
+
+function NavBar() {
 return (
-    <nav className="navbar navbar-expand-lg" style={{ backgroundColor: "#ffe4e1" }}>
-    <div className="container">
-        <a className="navbar-brand" href="#">
-          <img src="/logo.png" alt="Logo Tienda" style={{ height: '40px' }} /> {/* Cambia por tu logo */}
-        </a>
-        <div className="collapse navbar-collapse">
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-            <a className="nav-link" href="#">Inicio</a>
-            </li>
-            <li className="nav-item">
-            <a className="nav-link" href="#">Productos</a>
-            </li>
-            <li className="nav-item">
-            <a className="nav-link" href="#">Contacto</a>
-            </li>
-        </ul>
-        <CartWidget />
-        </div>
-    </div>
+    <nav style={{ display: "flex", justifyContent: "space-around", alignItems: "center", backgroundColor: "#FAE3FF"}}>
+      <img src={logo} alt="Logo de Doll Makeup Store" style={{ height: "100px" }} />
+
+      <ul style={{display: "flex", listStyle: "none", gap: "20px"}}>
+        <li><CiMenuBurger size={24}/></li>
+        <li><IoSearchOutline size={24}/></li>
+        <li><GoPerson size={24}/></li>
+        <li><CiShoppingCart size={24} /></li>
+      </ul>
     </nav>
 );
-};
+}
 
 export default NavBar;
