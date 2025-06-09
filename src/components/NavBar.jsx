@@ -1,25 +1,22 @@
-import CartWidget from "./CartWidget";
-import logo from '../assets/logo-doll.png';
-import { space } from "@chakra-ui/react";
-import { CiShoppingCart } from "react-icons/ci";
-import { GoPerson } from "react-icons/go";
-import { IoSearchOutline } from "react-icons/io5";
-import { CiMenuBurger } from "react-icons/ci";
-
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './NavBar.css';
 
 function NavBar() {
-return (
-    <nav style={{ display: "flex", justifyContent: "space-around", alignItems: "center", backgroundColor: "#FAE3FF"}}>
-      <img src={logo} alt="Logo de Doll Makeup Store" style={{ height: "100px" }} />
-
-      <ul style={{display: "flex", listStyle: "none", gap: "20px"}}>
-        <li><CiMenuBurger size={24}/></li>
-        <li><IoSearchOutline size={24}/></li>
-        <li><GoPerson size={24}/></li>
-        <li><CiShoppingCart size={24} /></li>
+  return (
+    <nav className="navbar">
+      <ul className="navbar-links">
+        <li><Link to="/category/labios">Labios</Link></li>
+        <li><Link to="/category/ojos">Ojos</Link></li>
+        <li><Link to="/category/rostro">Rostro</Link></li>
       </ul>
+      <div className="navbar-logo">
+        <Link to="/">
+          <img src="/assets/logo-doll.png" alt="Logo" />
+        </Link>
+      </div>
     </nav>
-);
+  );
 }
 
 export default NavBar;

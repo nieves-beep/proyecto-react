@@ -1,9 +1,21 @@
-const ItemListContainer = ({ greeting }) => {
-    return (
-    <div className="container text-center mt-5">
-        <h1 style={{ color: "#AA73B6" }}>{greeting}</h1>
+import React, { useEffect, useState } from 'react';
+import { getProducts } from '../data/products.js';
+import ItemList from './ItemList';
+
+const ItemListContainer = () => {
+const [products, setProducts] = useState([]);
+
+useEffect(() => {
+    getProducts().then((data) => {
+    setProducts(data);
+    });
+}, []);
+
+return (
+    <div style={{ padding: '2rem' }}>
+    <ItemList products={products} />
     </div>
-    );
+);
 };
 
 export default ItemListContainer;
