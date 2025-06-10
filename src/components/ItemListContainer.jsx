@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import { getProducts } from '../data/products.js';
-import ItemList from './ItemList';
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import { getProducts } from "../data/products";
 
-const ItemListContainer = () => {
-const [products, setProducts] = useState([]);
+const ItemListContainer = ({ greetings }) => {
+  const { categoryId } = useParams();
+  const [products, setProducts] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
     getProducts().then((data) => {
-    setProducts(data);
+      if (categoryId) {
+        const filtered = data.filter((prod) => prod.category === categoryId);
+        setProducts(filtered);
+      } else {
+        setProducts(data);
+      }
     });
-}, []);
+  }, [categoryId]);
 
-return (
-    <div style={{ padding: '2rem' }}>
-    <ItemList products={products} />
+  return (
+    <div>
+      <h2>{greetings}</h2>
+      <ItemList products={products} />
     </div>
-);
+  );
 };
 
 export default ItemListContainer;

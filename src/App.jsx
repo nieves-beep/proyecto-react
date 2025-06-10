@@ -8,7 +8,8 @@ function App() {
     <>
       <NavBar />
       <Routes>
-        <Route path="/" element={<ItemListContainer greetings="Bienvenido a Doll Makeup Store" />} />
+        <Route path="/" element={<ItemListContainer />} />
+
         <Route path="/category/:categoryId" element={<ItemListContainer />} />
         <Route path="/item/:itemId" element={<ItemDetailContainer />} />
         <Route path="*" element={<h2>404 - Página no encontrada</h2>} />
