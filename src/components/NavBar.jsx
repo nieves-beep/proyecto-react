@@ -1,22 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.css';
+import { Link } from "react-router-dom";
+import CartWidget from "./CartWidget";
 
-function NavBar() {
+const NavBar = () => {
   return (
-    <nav className="navbar">
-      <ul className="navbar-links">
-        <li><Link to="/category/labios">Labios</Link></li>
-        <li><Link to="/category/ojos">Ojos</Link></li>
-        <li><Link to="/category/rostro">Rostro</Link></li>
-      </ul>
-      <div className="navbar-logo">
+    <header style={{
+      backgroundColor: "#fce6fc",
+      padding: "1rem 10rem",
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      height: "130px",
+      overflow: "visible" 
+    }}>
+
+      {/* CATEGORIAS */}
+
+      <nav style={{
+        display: "flex",
+        gap: "2rem",
+        fontWeight: "bold",
+        fontSize: "1.4rem"
+      }}>
+        <Link to="/category/labios" style={{ color: "#AA73B6", textDecoration: "none" }}>Labios</Link>
+        <Link to="/category/ojos" style={{ color: "#AA73B6", textDecoration: "none" }}>Ojos</Link>
+        <Link to="/category/rostro" style={{ color: "#AA73B6", textDecoration: "none" }}>Rostro</Link>
+      </nav>
+
+      {/* LOGO */}
+
+      <div style={{ transform: "scale(1.4)", transformOrigin: "center" }}>
         <Link to="/">
-          <img src="/assets/logo-doll.png" alt="Logo" />
+          <img
+            src="/assets/logo-doll.png"
+            alt="Doll Makeup"
+            style={{
+              height: "150px",
+              objectFit: "center"
+            }}
+          />
         </Link>
       </div>
-    </nav>
+
+      {/* CARRITO */}
+
+      <div>
+        <Link to="/cart" style={{ textDecoration: "none", color: "#a65fc2" }}>
+          <CartWidget />
+        </Link>
+      </div>
+    </header>
   );
-}
+};
 
 export default NavBar;

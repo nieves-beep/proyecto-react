@@ -1,0 +1,51 @@
+.item-count-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* BOTONES + - */
+.item-count-button {
+    background-color: #F8EDF8;
+    color: #b469bc;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item-count-button:hover {
+    background-color: #e3bce9;
+}
+
+/* NUMERO DEL CONTADOR */
+.item-count-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #b469bc;
+    min-width: 2rem;
+    text-align: center;
+}
+
+/* BTN AGREGAR AL CARRITO */
+.item-count-add {
+    background-color: #b469bc;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.item-count-add:hover {
+    background-color: #a053a9;
+}

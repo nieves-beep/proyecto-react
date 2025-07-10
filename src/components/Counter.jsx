@@ -5,25 +5,18 @@ function Counter() {
 const [cantidad, setCantidad] = useState(1);
 
 return (
-    <div style={{ display: "flex", gap: "1rem" }}>
-    <button
-        className="btn btn-secondary"
-        onClick={() => setCantidad(cantidad - 1)}
-    >
-        -
-    </button>
+    <div className="counter-container">
+    <button className="counter-button" onClick={() => setCantidad(cantidad - 1)}>-</button>
 
-    <p>{cantidad}</p>
+    <span className="counter-value">{cantidad}</span>
 
-    <button
-        className="btn btn-secondary"
-        onClick={() => setCantidad(cantidad + 1)}
-    >
-        +
+    <button className="counter-button" onClick={() => setCantidad(cantidad + 1)}>+</button>
+
+    <button className="add-button" onClick={() => alert(`Agregado ${cantidad} al carrito`)}>
+        Agregar
     </button>
     </div>
 );
 }
 
 export default Counter;
-

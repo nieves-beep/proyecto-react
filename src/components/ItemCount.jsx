@@ -1,26 +1,27 @@
-import { useState } from 'react';
+import { useState } from "react";
+import "./ItemCount.css";
 
-function ItemCount({ stock, initial, onAdd }) {
+
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
 const [count, setCount] = useState(initial);
 
-const increase = () => {
+const sumar = () => {
     if (count < stock) setCount(count + 1);
 };
 
-const decrease = () => {
+const restar = () => {
     if (count > 1) setCount(count - 1);
 };
 
 return (
-    <div>
-    <div>
-        <button onClick={decrease}>-</button>
-        <span style={{ margin: "0 10px" }}>{count}</span>
-        <button onClick={increase}>+</button>
-    </div>
-    <button onClick={() => onAdd(count)}>Agregar al carrito</button>
-    </div>
+<div className="item-count-container">
+    <button className="item-count-button" onClick={restar}>-</button>
+    <span className="item-count-value">{count}</span>
+    <button className="item-count-button" onClick={sumar}>+</button>
+    <button className="item-count-add" onClick={() => onAdd(count)}>Agregar</button>
+</div>
 );
-}
+
+};
 
 export default ItemCount;
